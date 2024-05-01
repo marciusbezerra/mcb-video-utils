@@ -1,0 +1,1 @@
+set path=%path%;d:\Python311\Lib\site-packages\PySide6\

@@ -35,10 +35,10 @@
            <item>
             <layout class="QHBoxLayout" name="horizontalLayout_3">
              <item>
-              <widget class="QLineEdit" name="lineEdit"/>
+              <widget class="QLineEdit" name="lineEditVideoIn"/>
              </item>
              <item>
-              <widget class="QToolButton" name="toolButton">
+              <widget class="QToolButton" name="toolButtonOpenFile">
                <property name="text">
                 <string>...</string>
                </property>
@@ -66,7 +66,14 @@
           </property>
           <layout class="QVBoxLayout" name="verticalLayout_7">
            <item>
-            <widget class="QListView" name="listView"/>
+            <widget class="QListView" name="listViewVideosIn"/>
+           </item>
+           <item>
+            <widget class="QPushButton" name="pushButtonDeleteVideoIn">
+             <property name="text">
+              <string>Excluir</string>
+             </property>
+            </widget>
            </item>
           </layout>
          </widget>
@@ -80,7 +87,7 @@
             </property>
             <layout class="QVBoxLayout" name="verticalLayout_2">
              <item>
-              <widget class="QWidget" name="widget" native="true">
+              <widget class="QWidget" name="widgetPreview" native="true">
                <property name="styleSheet">
                 <string notr="true">border: 1px solid white;
 border-radius: 10px</string>
@@ -113,7 +120,7 @@ border-radius: 10px</string>
                      <enum>QLayout::SizeConstraint::SetDefaultConstraint</enum>
                     </property>
                     <item>
-                     <widget class="QCheckBox" name="checkBox">
+                     <widget class="QCheckBox" name="checkBoxEnableEdit">
                       <property name="maximumSize">
                        <size>
                         <width>200</width>
@@ -145,7 +152,7 @@ border-radius: 10px</string>
                      </widget>
                     </item>
                     <item>
-                     <widget class="QSpinBox" name="spinBox">
+                     <widget class="QSpinBox" name="spinBoxMinAudio">
                       <property name="maximumSize">
                        <size>
                         <width>100</width>
@@ -171,7 +178,7 @@ border-radius: 10px</string>
                      </widget>
                     </item>
                     <item>
-                     <widget class="QSpinBox" name="spinBox_2">
+                     <widget class="QSpinBox" name="spinBoxMinMotion">
                       <property name="maximumSize">
                        <size>
                         <width>100</width>
@@ -209,28 +216,28 @@ border-radius: 10px</string>
                           </widget>
                          </item>
                          <item>
-                          <widget class="QLineEdit" name="lineEdit_4">
+                          <widget class="QLineEdit" name="lineEditStartentSegment">
                            <property name="placeholderText">
                             <string>1sec,10sec 20sec,30sec</string>
                            </property>
                           </widget>
                          </item>
                          <item>
-                          <widget class="QToolButton" name="toolButton_2">
+                          <widget class="QToolButton" name="toolButtonStartSegment">
                            <property name="text">
                             <string>[</string>
                            </property>
                           </widget>
                          </item>
                          <item>
-                          <widget class="QToolButton" name="toolButton_3">
+                          <widget class="QToolButton" name="toolButtonEndSegment">
                            <property name="text">
                             <string>]</string>
                            </property>
                           </widget>
                          </item>
                          <item>
-                          <widget class="QToolButton" name="toolButton_4">
+                          <widget class="QToolButton" name="toolButtonaddSegment">
                            <property name="text">
                             <string>+</string>
                            </property>
@@ -239,7 +246,7 @@ border-radius: 10px</string>
                         </layout>
                        </item>
                        <item>
-                        <widget class="QListView" name="listView_2"/>
+                        <widget class="QListView" name="listViewSegments"/>
                        </item>
                       </layout>
                      </item>
@@ -275,7 +282,7 @@ border-radius: 10px</string>
            <item>
             <layout class="QHBoxLayout" name="horizontalLayout_7">
              <item>
-              <widget class="QCheckBox" name="checkBox_2">
+              <widget class="QCheckBox" name="checkBoxEnableVideoConv">
                <property name="text">
                 <string>Converte</string>
                </property>
@@ -291,7 +298,7 @@ border-radius: 10px</string>
                 </widget>
                </item>
                <item>
-                <widget class="QLineEdit" name="lineEdit_2">
+                <widget class="QLineEdit" name="lineEditVideoCodec">
                  <property name="text">
                   <string>libx264</string>
                  </property>
@@ -309,7 +316,7 @@ border-radius: 10px</string>
                 </widget>
                </item>
                <item>
-                <widget class="QSpinBox" name="spinBox_3">
+                <widget class="QSpinBox" name="spinBoxVideoCrf">
                  <property name="minimumSize">
                   <size>
                    <width>100</width>
@@ -339,7 +346,7 @@ border-radius: 10px</string>
                 </widget>
                </item>
                <item>
-                <widget class="QSpinBox" name="spinBox_4">
+                <widget class="QSpinBox" name="spinBoxVideoFps">
                  <property name="minimumSize">
                   <size>
                    <width>100</width>
@@ -379,7 +386,7 @@ border-radius: 10px</string>
               <enum>QLayout::SizeConstraint::SetDefaultConstraint</enum>
              </property>
              <item>
-              <widget class="QCheckBox" name="checkBox_3">
+              <widget class="QCheckBox" name="checkBoxEnableAudioConv">
                <property name="text">
                 <string>Converte</string>
                </property>
@@ -395,7 +402,7 @@ border-radius: 10px</string>
                 </widget>
                </item>
                <item>
-                <widget class="QLineEdit" name="lineEdit_3">
+                <widget class="QLineEdit" name="lineEditAudioCodec">
                  <property name="text">
                   <string>aac</string>
                  </property>
@@ -413,7 +420,7 @@ border-radius: 10px</string>
                 </widget>
                </item>
                <item>
-                <widget class="QSpinBox" name="spinBox_5">
+                <widget class="QSpinBox" name="spinBoxAudioBitrate">
                  <property name="minimumSize">
                   <size>
                    <width>100</width>
@@ -458,10 +465,14 @@ border-radius: 10px</string>
          <item>
           <layout class="QHBoxLayout" name="horizontalLayout_5">
            <item>
-            <widget class="QPlainTextEdit" name="plainTextEdit"/>
+            <widget class="QPlainTextEdit" name="plainTextEditCmds">
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+            </widget>
            </item>
            <item>
-            <widget class="QPushButton" name="pushButton">
+            <widget class="QPushButton" name="pushButtonProcess">
              <property name="minimumSize">
               <size>
                <width>0</width>
@@ -498,26 +509,27 @@ border-radius: 10px</string>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <tabstops>
-  <tabstop>lineEdit</tabstop>
-  <tabstop>toolButton</tabstop>
-  <tabstop>listView</tabstop>
-  <tabstop>checkBox</tabstop>
-  <tabstop>spinBox</tabstop>
-  <tabstop>spinBox_2</tabstop>
-  <tabstop>lineEdit_4</tabstop>
-  <tabstop>toolButton_2</tabstop>
-  <tabstop>toolButton_3</tabstop>
-  <tabstop>toolButton_4</tabstop>
-  <tabstop>listView_2</tabstop>
-  <tabstop>checkBox_2</tabstop>
-  <tabstop>lineEdit_2</tabstop>
-  <tabstop>spinBox_3</tabstop>
-  <tabstop>spinBox_4</tabstop>
-  <tabstop>checkBox_3</tabstop>
-  <tabstop>lineEdit_3</tabstop>
-  <tabstop>spinBox_5</tabstop>
-  <tabstop>plainTextEdit</tabstop>
-  <tabstop>pushButton</tabstop>
+  <tabstop>lineEditVideoIn</tabstop>
+  <tabstop>toolButtonOpenFile</tabstop>
+  <tabstop>listViewVideosIn</tabstop>
+  <tabstop>pushButtonDeleteVideoIn</tabstop>
+  <tabstop>checkBoxEnableEdit</tabstop>
+  <tabstop>spinBoxMinAudio</tabstop>
+  <tabstop>spinBoxMinMotion</tabstop>
+  <tabstop>lineEditStartentSegment</tabstop>
+  <tabstop>toolButtonStartSegment</tabstop>
+  <tabstop>toolButtonEndSegment</tabstop>
+  <tabstop>toolButtonaddSegment</tabstop>
+  <tabstop>listViewSegments</tabstop>
+  <tabstop>checkBoxEnableVideoConv</tabstop>
+  <tabstop>lineEditVideoCodec</tabstop>
+  <tabstop>spinBoxVideoCrf</tabstop>
+  <tabstop>spinBoxVideoFps</tabstop>
+  <tabstop>checkBoxEnableAudioConv</tabstop>
+  <tabstop>lineEditAudioCodec</tabstop>
+  <tabstop>spinBoxAudioBitrate</tabstop>
+  <tabstop>plainTextEditCmds</tabstop>
+  <tabstop>pushButtonProcess</tabstop>
  </tabstops>
  <resources/>
  <connections/>

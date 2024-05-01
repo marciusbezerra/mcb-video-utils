@@ -1,0 +1,58 @@
+ffmpeg -i "in.mp4" -i "in.mp4" -i "in.mp4" -i "in.mp4" -i "in.mp4" -i "in.mp4" -i "in.mp4" 
+	-filter_complex "[0:v][0:a][1:v][1:a][2:v][2:a][3:v][3:a][4:v][4:a][5:v][5:a][6:v][6:a]concat=n=7:v=1:a=1[outv][outa]" -map "[outv]" -map "[outa]" -c:v libx264 -crf 30 -preset medium -c:a aac -b:a 128k out.mp4
+ffmpeg -i "in.mp4" -crf 30 -filter:v fps=15 -b:a 128k "out.mp4"
+ffmpeg -i "in.mp4" -crf 30 -filter:v fps=15 -b:a 128k "out.mp4"
+ffmpeg -i "in.mp4" -crf 33 -filter:v fps=15 -b:a 128k "out.mp4"
+ffmpeg -i "in.mp4" -crf 22 -filter:v fps=15 -b:a 128k "out.mp4"
+ffmpeg -i "in.mp4" -crf 35 -filter:v fps=15 -b:a 128k "out.mp4"
+auto-editor "in.mp4"
+auto-editor "in.mp4" --edit "(or audio:3% motion:1%)"
+auto-editor "in.mp4" --add-in 2537sec,2542sec 2628sec,2633sec 2790sec,2795sec 2987sec,2992sec 3977sec,3982sec 4081sec,4086sec 4431sec,4436sec
+auto-editor "in.mp4" --edit "(or audio:3% motion:3%)"
+auto-editor "in.mp4" --edit "(or audio:3% motion:10%)"
+
+
+Vídeo:
+Auto Editar -> Percentual de áudio, Percentual de movimento, Momentos exclusos
+codec video
+crf 
+fps 15
+codec audio 
+áudio bitrate
+
+---------------------------
+Code generation failed
+---------------------------
+Unable to launch D:\Python311\Lib\site-packages\PySide6\bin\uic: Process failed to start: O sistema não pode encontrar o arquivo especificado.
+---------------------------
+OK   
+---------------------------
+
+#include <QApplication>
+#include <QMainWindow>
+#include <QVideoWidget>
+#include <QMediaPlayer>
+
+int main(int argc, char *argv[]) {
+    QApplication a(argc, argv);
+    
+    QMainWindow window;
+    
+    // Adiciona o widget de vídeo à janela principal
+    QVideoWidget *videoWidget = new QVideoWidget(&window);
+    window.setCentralWidget(videoWidget);
+
+    // Cria um player de mídia e configura o widget de vídeo como sua saída
+    QMediaPlayer *player = new QMediaPlayer;
+    player->setVideoOutput(videoWidget);
+
+    // Carrega o arquivo de vídeo
+    player->setMedia(QUrl::fromLocalFile("caminho/para/o/video.mp4"));
+
+    // Reproduz o vídeo
+    player->play();
+    
+    window.show();
+    
+    return a.exec();
+}
