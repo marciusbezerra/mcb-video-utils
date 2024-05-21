@@ -15,11 +15,11 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QCheckBox, QGroupBox, QHBoxLayout,
-    QLabel, QLayout, QLineEdit, QListView,
-    QMainWindow, QMenuBar, QPlainTextEdit, QPushButton,
-    QSizePolicy, QSpinBox, QStatusBar, QToolButton,
-    QVBoxLayout, QWidget)
+from PySide6.QtWidgets import (QApplication, QCheckBox, QFrame, QGroupBox,
+    QHBoxLayout, QLabel, QLayout, QLineEdit,
+    QListView, QMainWindow, QMenuBar, QPlainTextEdit,
+    QPushButton, QSizePolicy, QSpinBox, QStatusBar,
+    QToolButton, QVBoxLayout, QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -32,54 +32,47 @@ class Ui_MainWindow(object):
         self.verticalLayout_4.setObjectName(u"verticalLayout_4")
         self.verticalLayout_3 = QVBoxLayout()
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
-        self.groupBox_6 = QGroupBox(self.centralwidget)
-        self.groupBox_6.setObjectName(u"groupBox_6")
-        self.verticalLayout_6 = QVBoxLayout(self.groupBox_6)
+        self.horizontalLayout = QHBoxLayout()
+        self.horizontalLayout.setObjectName(u"horizontalLayout")
+        self.groupBox_5 = QGroupBox(self.centralwidget)
+        self.groupBox_5.setObjectName(u"groupBox_5")
+        self.groupBox_5.setMaximumSize(QSize(300, 16777215))
+        self.verticalLayout_6 = QVBoxLayout(self.groupBox_5)
         self.verticalLayout_6.setObjectName(u"verticalLayout_6")
         self.verticalLayout_5 = QVBoxLayout()
         self.verticalLayout_5.setObjectName(u"verticalLayout_5")
-        self.label = QLabel(self.groupBox_6)
-        self.label.setObjectName(u"label")
+        self.listViewVideosIn = QListView(self.groupBox_5)
+        self.listViewVideosIn.setObjectName(u"listViewVideosIn")
 
-        self.verticalLayout_5.addWidget(self.label)
+        self.verticalLayout_5.addWidget(self.listViewVideosIn)
 
         self.horizontalLayout_3 = QHBoxLayout()
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
-        self.lineEditVideoIn = QLineEdit(self.groupBox_6)
-        self.lineEditVideoIn.setObjectName(u"lineEditVideoIn")
+        self.toolButtonAddVideo = QToolButton(self.groupBox_5)
+        self.toolButtonAddVideo.setObjectName(u"toolButtonAddVideo")
 
-        self.horizontalLayout_3.addWidget(self.lineEditVideoIn)
+        self.horizontalLayout_3.addWidget(self.toolButtonAddVideo)
 
-        self.toolButtonOpenFile = QToolButton(self.groupBox_6)
-        self.toolButtonOpenFile.setObjectName(u"toolButtonOpenFile")
+        self.pushButtonDeleteVideoIn = QPushButton(self.groupBox_5)
+        self.pushButtonDeleteVideoIn.setObjectName(u"pushButtonDeleteVideoIn")
 
-        self.horizontalLayout_3.addWidget(self.toolButtonOpenFile)
+        self.horizontalLayout_3.addWidget(self.pushButtonDeleteVideoIn)
+
+        self.toolButtonMoveVideoUp = QToolButton(self.groupBox_5)
+        self.toolButtonMoveVideoUp.setObjectName(u"toolButtonMoveVideoUp")
+
+        self.horizontalLayout_3.addWidget(self.toolButtonMoveVideoUp)
+
+        self.toolButtonMoveVideoDown = QToolButton(self.groupBox_5)
+        self.toolButtonMoveVideoDown.setObjectName(u"toolButtonMoveVideoDown")
+
+        self.horizontalLayout_3.addWidget(self.toolButtonMoveVideoDown)
 
 
         self.verticalLayout_5.addLayout(self.horizontalLayout_3)
 
 
         self.verticalLayout_6.addLayout(self.verticalLayout_5)
-
-
-        self.verticalLayout_3.addWidget(self.groupBox_6)
-
-        self.horizontalLayout = QHBoxLayout()
-        self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.groupBox_5 = QGroupBox(self.centralwidget)
-        self.groupBox_5.setObjectName(u"groupBox_5")
-        self.groupBox_5.setMaximumSize(QSize(300, 16777215))
-        self.verticalLayout_7 = QVBoxLayout(self.groupBox_5)
-        self.verticalLayout_7.setObjectName(u"verticalLayout_7")
-        self.listViewVideosIn = QListView(self.groupBox_5)
-        self.listViewVideosIn.setObjectName(u"listViewVideosIn")
-
-        self.verticalLayout_7.addWidget(self.listViewVideosIn)
-
-        self.pushButtonDeleteVideoIn = QPushButton(self.groupBox_5)
-        self.pushButtonDeleteVideoIn.setObjectName(u"pushButtonDeleteVideoIn")
-
-        self.verticalLayout_7.addWidget(self.pushButtonDeleteVideoIn)
 
 
         self.horizontalLayout.addWidget(self.groupBox_5)
@@ -97,6 +90,96 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_2.addWidget(self.widgetPreview)
 
+        self.frame = QFrame(self.groupBox_4)
+        self.frame.setObjectName(u"frame")
+        self.frame.setMaximumSize(QSize(16777215, 50))
+        self.frame.setFrameShape(QFrame.Shape.StyledPanel)
+        self.frame.setFrameShadow(QFrame.Shadow.Raised)
+        self.verticalLayout_7 = QVBoxLayout(self.frame)
+        self.verticalLayout_7.setObjectName(u"verticalLayout_7")
+        self.horizontalLayout_11 = QHBoxLayout()
+        self.horizontalLayout_11.setObjectName(u"horizontalLayout_11")
+        self.pushButtonPlayPause = QPushButton(self.frame)
+        self.pushButtonPlayPause.setObjectName(u"pushButtonPlayPause")
+        self.pushButtonPlayPause.setEnabled(False)
+        self.pushButtonPlayPause.setMaximumSize(QSize(70, 16777215))
+
+        self.horizontalLayout_11.addWidget(self.pushButtonPlayPause)
+
+        self.pushButtonStop = QPushButton(self.frame)
+        self.pushButtonStop.setObjectName(u"pushButtonStop")
+        self.pushButtonStop.setEnabled(False)
+        self.pushButtonStop.setMaximumSize(QSize(70, 16777215))
+
+        self.horizontalLayout_11.addWidget(self.pushButtonStop)
+
+        self.pushButtonBegin = QPushButton(self.frame)
+        self.pushButtonBegin.setObjectName(u"pushButtonBegin")
+        self.pushButtonBegin.setEnabled(False)
+        self.pushButtonBegin.setMaximumSize(QSize(30, 16777215))
+
+        self.horizontalLayout_11.addWidget(self.pushButtonBegin)
+
+        self.pushButtonPrev10m = QPushButton(self.frame)
+        self.pushButtonPrev10m.setObjectName(u"pushButtonPrev10m")
+        self.pushButtonPrev10m.setEnabled(False)
+        self.pushButtonPrev10m.setMaximumSize(QSize(50, 16777215))
+
+        self.horizontalLayout_11.addWidget(self.pushButtonPrev10m)
+
+        self.pushButtonPrev1m = QPushButton(self.frame)
+        self.pushButtonPrev1m.setObjectName(u"pushButtonPrev1m")
+        self.pushButtonPrev1m.setEnabled(False)
+        self.pushButtonPrev1m.setMaximumSize(QSize(50, 16777215))
+
+        self.horizontalLayout_11.addWidget(self.pushButtonPrev1m)
+
+        self.pushButtonPrev10s = QPushButton(self.frame)
+        self.pushButtonPrev10s.setObjectName(u"pushButtonPrev10s")
+        self.pushButtonPrev10s.setEnabled(False)
+        self.pushButtonPrev10s.setMaximumSize(QSize(50, 16777215))
+
+        self.horizontalLayout_11.addWidget(self.pushButtonPrev10s)
+
+        self.pushButtonNext10s = QPushButton(self.frame)
+        self.pushButtonNext10s.setObjectName(u"pushButtonNext10s")
+        self.pushButtonNext10s.setEnabled(False)
+        self.pushButtonNext10s.setMaximumSize(QSize(50, 16777215))
+
+        self.horizontalLayout_11.addWidget(self.pushButtonNext10s)
+
+        self.pushButtonNext1m = QPushButton(self.frame)
+        self.pushButtonNext1m.setObjectName(u"pushButtonNext1m")
+        self.pushButtonNext1m.setEnabled(False)
+        self.pushButtonNext1m.setMaximumSize(QSize(50, 16777215))
+
+        self.horizontalLayout_11.addWidget(self.pushButtonNext1m)
+
+        self.pushButtonNext10m = QPushButton(self.frame)
+        self.pushButtonNext10m.setObjectName(u"pushButtonNext10m")
+        self.pushButtonNext10m.setEnabled(False)
+        self.pushButtonNext10m.setMaximumSize(QSize(50, 16777215))
+
+        self.horizontalLayout_11.addWidget(self.pushButtonNext10m)
+
+        self.pushButtonEnd = QPushButton(self.frame)
+        self.pushButtonEnd.setObjectName(u"pushButtonEnd")
+        self.pushButtonEnd.setEnabled(False)
+        self.pushButtonEnd.setMaximumSize(QSize(30, 16777215))
+
+        self.horizontalLayout_11.addWidget(self.pushButtonEnd)
+
+        self.labelVideoTime = QLabel(self.frame)
+        self.labelVideoTime.setObjectName(u"labelVideoTime")
+
+        self.horizontalLayout_11.addWidget(self.labelVideoTime)
+
+
+        self.verticalLayout_7.addLayout(self.horizontalLayout_11)
+
+
+        self.verticalLayout_2.addWidget(self.frame)
+
         self.groupBox = QGroupBox(self.groupBox_4)
         self.groupBox.setObjectName(u"groupBox")
         self.groupBox.setMinimumSize(QSize(0, 200))
@@ -110,6 +193,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_11.setSizeConstraint(QLayout.SizeConstraint.SetDefaultConstraint)
         self.checkBoxEnableEdit = QCheckBox(self.groupBox)
         self.checkBoxEnableEdit.setObjectName(u"checkBoxEnableEdit")
+        self.checkBoxEnableEdit.setEnabled(False)
         self.checkBoxEnableEdit.setMaximumSize(QSize(200, 16777215))
 
         self.verticalLayout_11.addWidget(self.checkBoxEnableEdit)
@@ -123,6 +207,7 @@ class Ui_MainWindow(object):
 
         self.spinBoxMinAudio = QSpinBox(self.groupBox)
         self.spinBoxMinAudio.setObjectName(u"spinBoxMinAudio")
+        self.spinBoxMinAudio.setEnabled(False)
         self.spinBoxMinAudio.setMaximumSize(QSize(100, 16777215))
         self.spinBoxMinAudio.setMaximum(100)
 
@@ -136,6 +221,7 @@ class Ui_MainWindow(object):
 
         self.spinBoxMinMotion = QSpinBox(self.groupBox)
         self.spinBoxMinMotion.setObjectName(u"spinBoxMinMotion")
+        self.spinBoxMinMotion.setEnabled(False)
         self.spinBoxMinMotion.setMaximumSize(QSize(100, 16777215))
         self.spinBoxMinMotion.setMaximum(100)
 
@@ -158,25 +244,29 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_4.addWidget(self.label_4)
 
-        self.lineEditStartentSegment = QLineEdit(self.groupBox_7)
-        self.lineEditStartentSegment.setObjectName(u"lineEditStartentSegment")
-
-        self.horizontalLayout_4.addWidget(self.lineEditStartentSegment)
-
         self.toolButtonStartSegment = QToolButton(self.groupBox_7)
         self.toolButtonStartSegment.setObjectName(u"toolButtonStartSegment")
+        self.toolButtonStartSegment.setEnabled(False)
 
         self.horizontalLayout_4.addWidget(self.toolButtonStartSegment)
 
         self.toolButtonEndSegment = QToolButton(self.groupBox_7)
         self.toolButtonEndSegment.setObjectName(u"toolButtonEndSegment")
+        self.toolButtonEndSegment.setEnabled(False)
 
         self.horizontalLayout_4.addWidget(self.toolButtonEndSegment)
 
-        self.toolButtonaddSegment = QToolButton(self.groupBox_7)
-        self.toolButtonaddSegment.setObjectName(u"toolButtonaddSegment")
+        self.toolButtonAddSegment = QToolButton(self.groupBox_7)
+        self.toolButtonAddSegment.setObjectName(u"toolButtonAddSegment")
+        self.toolButtonAddSegment.setEnabled(False)
 
-        self.horizontalLayout_4.addWidget(self.toolButtonaddSegment)
+        self.horizontalLayout_4.addWidget(self.toolButtonAddSegment)
+
+        self.toolButtonDeleteSegment = QToolButton(self.groupBox_7)
+        self.toolButtonDeleteSegment.setObjectName(u"toolButtonDeleteSegment")
+        self.toolButtonDeleteSegment.setEnabled(False)
+
+        self.horizontalLayout_4.addWidget(self.toolButtonDeleteSegment)
 
 
         self.verticalLayout_8.addLayout(self.horizontalLayout_4)
@@ -218,6 +308,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
         self.checkBoxEnableVideoConv = QCheckBox(self.groupBox_2)
         self.checkBoxEnableVideoConv.setObjectName(u"checkBoxEnableVideoConv")
+        self.checkBoxEnableVideoConv.setChecked(True)
 
         self.horizontalLayout_7.addWidget(self.checkBoxEnableVideoConv)
 
@@ -289,6 +380,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_8.setSizeConstraint(QLayout.SizeConstraint.SetDefaultConstraint)
         self.checkBoxEnableAudioConv = QCheckBox(self.groupBox_3)
         self.checkBoxEnableAudioConv.setObjectName(u"checkBoxEnableAudioConv")
+        self.checkBoxEnableAudioConv.setChecked(True)
 
         self.horizontalLayout_8.addWidget(self.checkBoxEnableAudioConv)
 
@@ -372,17 +464,28 @@ class Ui_MainWindow(object):
         self.statusbar = QStatusBar(MainWindow)
         self.statusbar.setObjectName(u"statusbar")
         MainWindow.setStatusBar(self.statusbar)
-        QWidget.setTabOrder(self.lineEditVideoIn, self.toolButtonOpenFile)
-        QWidget.setTabOrder(self.toolButtonOpenFile, self.listViewVideosIn)
-        QWidget.setTabOrder(self.listViewVideosIn, self.pushButtonDeleteVideoIn)
-        QWidget.setTabOrder(self.pushButtonDeleteVideoIn, self.checkBoxEnableEdit)
+        QWidget.setTabOrder(self.listViewVideosIn, self.toolButtonAddVideo)
+        QWidget.setTabOrder(self.toolButtonAddVideo, self.pushButtonDeleteVideoIn)
+        QWidget.setTabOrder(self.pushButtonDeleteVideoIn, self.toolButtonMoveVideoUp)
+        QWidget.setTabOrder(self.toolButtonMoveVideoUp, self.toolButtonMoveVideoDown)
+        QWidget.setTabOrder(self.toolButtonMoveVideoDown, self.pushButtonPlayPause)
+        QWidget.setTabOrder(self.pushButtonPlayPause, self.pushButtonStop)
+        QWidget.setTabOrder(self.pushButtonStop, self.pushButtonBegin)
+        QWidget.setTabOrder(self.pushButtonBegin, self.pushButtonPrev10m)
+        QWidget.setTabOrder(self.pushButtonPrev10m, self.pushButtonPrev1m)
+        QWidget.setTabOrder(self.pushButtonPrev1m, self.pushButtonPrev10s)
+        QWidget.setTabOrder(self.pushButtonPrev10s, self.pushButtonNext10s)
+        QWidget.setTabOrder(self.pushButtonNext10s, self.pushButtonNext1m)
+        QWidget.setTabOrder(self.pushButtonNext1m, self.pushButtonNext10m)
+        QWidget.setTabOrder(self.pushButtonNext10m, self.pushButtonEnd)
+        QWidget.setTabOrder(self.pushButtonEnd, self.checkBoxEnableEdit)
         QWidget.setTabOrder(self.checkBoxEnableEdit, self.spinBoxMinAudio)
         QWidget.setTabOrder(self.spinBoxMinAudio, self.spinBoxMinMotion)
-        QWidget.setTabOrder(self.spinBoxMinMotion, self.lineEditStartentSegment)
-        QWidget.setTabOrder(self.lineEditStartentSegment, self.toolButtonStartSegment)
+        QWidget.setTabOrder(self.spinBoxMinMotion, self.toolButtonStartSegment)
         QWidget.setTabOrder(self.toolButtonStartSegment, self.toolButtonEndSegment)
-        QWidget.setTabOrder(self.toolButtonEndSegment, self.toolButtonaddSegment)
-        QWidget.setTabOrder(self.toolButtonaddSegment, self.listViewSegments)
+        QWidget.setTabOrder(self.toolButtonEndSegment, self.toolButtonAddSegment)
+        QWidget.setTabOrder(self.toolButtonAddSegment, self.toolButtonDeleteSegment)
+        QWidget.setTabOrder(self.toolButtonDeleteSegment, self.listViewSegments)
         QWidget.setTabOrder(self.listViewSegments, self.checkBoxEnableVideoConv)
         QWidget.setTabOrder(self.checkBoxEnableVideoConv, self.lineEditVideoCodec)
         QWidget.setTabOrder(self.lineEditVideoCodec, self.spinBoxVideoCrf)
@@ -390,8 +493,8 @@ class Ui_MainWindow(object):
         QWidget.setTabOrder(self.spinBoxVideoFps, self.checkBoxEnableAudioConv)
         QWidget.setTabOrder(self.checkBoxEnableAudioConv, self.lineEditAudioCodec)
         QWidget.setTabOrder(self.lineEditAudioCodec, self.spinBoxAudioBitrate)
-        QWidget.setTabOrder(self.spinBoxAudioBitrate, self.plainTextEditCmds)
-        QWidget.setTabOrder(self.plainTextEditCmds, self.pushButtonProcess)
+        QWidget.setTabOrder(self.spinBoxAudioBitrate, self.pushButtonProcess)
+        QWidget.setTabOrder(self.pushButtonProcess, self.plainTextEditCmds)
 
         self.retranslateUi(MainWindow)
 
@@ -400,22 +503,33 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MCB V\u00eddeo Auto Editor", None))
-        self.groupBox_6.setTitle(QCoreApplication.translate("MainWindow", u"Arquivo de origem", None))
-        self.label.setText(QCoreApplication.translate("MainWindow", u"Selecione em arquivo", None))
-        self.toolButtonOpenFile.setText(QCoreApplication.translate("MainWindow", u"...", None))
         self.groupBox_5.setTitle(QCoreApplication.translate("MainWindow", u"Arquivos de origem", None))
+        self.toolButtonAddVideo.setText(QCoreApplication.translate("MainWindow", u"+", None))
         self.pushButtonDeleteVideoIn.setText(QCoreApplication.translate("MainWindow", u"Excluir", None))
+        self.toolButtonMoveVideoUp.setText(QCoreApplication.translate("MainWindow", u"\u25b2", None))
+        self.toolButtonMoveVideoDown.setText(QCoreApplication.translate("MainWindow", u"\u25bc", None))
         self.groupBox_4.setTitle(QCoreApplication.translate("MainWindow", u"Pr\u00e9-visualiza\u00e7\u00e3o do v\u00eddeo", None))
+        self.pushButtonPlayPause.setText(QCoreApplication.translate("MainWindow", u"Play", None))
+        self.pushButtonStop.setText(QCoreApplication.translate("MainWindow", u"Stop", None))
+        self.pushButtonBegin.setText(QCoreApplication.translate("MainWindow", u"|<", None))
+        self.pushButtonPrev10m.setText(QCoreApplication.translate("MainWindow", u"< 10m", None))
+        self.pushButtonPrev1m.setText(QCoreApplication.translate("MainWindow", u"< 1m", None))
+        self.pushButtonPrev10s.setText(QCoreApplication.translate("MainWindow", u"< 10s", None))
+        self.pushButtonNext10s.setText(QCoreApplication.translate("MainWindow", u"10s >", None))
+        self.pushButtonNext1m.setText(QCoreApplication.translate("MainWindow", u"1m >", None))
+        self.pushButtonNext10m.setText(QCoreApplication.translate("MainWindow", u"10m >", None))
+        self.pushButtonEnd.setText(QCoreApplication.translate("MainWindow", u">|", None))
+        self.labelVideoTime.setText(QCoreApplication.translate("MainWindow", u"00:00:00.000", None))
         self.groupBox.setTitle(QCoreApplication.translate("MainWindow", u"Edi\u00e7\u00e3o autom\u00e1tica", None))
         self.checkBoxEnableEdit.setText(QCoreApplication.translate("MainWindow", u"Habilitar", None))
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"M\u00edn. \u00e1udio (%):", None))
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"M\u00edn. Movimento (%):", None))
         self.groupBox_7.setTitle(QCoreApplication.translate("MainWindow", u"Momentos exclusos", None))
         self.label_4.setText(QCoreApplication.translate("MainWindow", u"In\u00edcio,Fim:", None))
-        self.lineEditStartentSegment.setPlaceholderText(QCoreApplication.translate("MainWindow", u"1sec,10sec 20sec,30sec", None))
         self.toolButtonStartSegment.setText(QCoreApplication.translate("MainWindow", u"[", None))
         self.toolButtonEndSegment.setText(QCoreApplication.translate("MainWindow", u"]", None))
-        self.toolButtonaddSegment.setText(QCoreApplication.translate("MainWindow", u"+", None))
+        self.toolButtonAddSegment.setText(QCoreApplication.translate("MainWindow", u"+", None))
+        self.toolButtonDeleteSegment.setText(QCoreApplication.translate("MainWindow", u"-", None))
         self.groupBox_2.setTitle(QCoreApplication.translate("MainWindow", u"V\u00eddeo", None))
         self.checkBoxEnableVideoConv.setText(QCoreApplication.translate("MainWindow", u"Converte", None))
         self.label_5.setText(QCoreApplication.translate("MainWindow", u"Codec:", None))

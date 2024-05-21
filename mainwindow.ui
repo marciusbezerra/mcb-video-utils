@@ -18,40 +18,6 @@
     <item>
      <layout class="QVBoxLayout" name="verticalLayout_3">
       <item>
-       <widget class="QGroupBox" name="groupBox_6">
-        <property name="title">
-         <string>Arquivo de origem</string>
-        </property>
-        <layout class="QVBoxLayout" name="verticalLayout_6">
-         <item>
-          <layout class="QVBoxLayout" name="verticalLayout_5">
-           <item>
-            <widget class="QLabel" name="label">
-             <property name="text">
-              <string>Selecione em arquivo</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <layout class="QHBoxLayout" name="horizontalLayout_3">
-             <item>
-              <widget class="QLineEdit" name="lineEditVideoIn"/>
-             </item>
-             <item>
-              <widget class="QToolButton" name="toolButtonOpenFile">
-               <property name="text">
-                <string>...</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </item>
-          </layout>
-         </item>
-        </layout>
-       </widget>
-      </item>
-      <item>
        <layout class="QHBoxLayout" name="horizontalLayout">
         <item>
          <widget class="QGroupBox" name="groupBox_5">
@@ -64,16 +30,45 @@
           <property name="title">
            <string>Arquivos de origem</string>
           </property>
-          <layout class="QVBoxLayout" name="verticalLayout_7">
+          <layout class="QVBoxLayout" name="verticalLayout_6">
            <item>
-            <widget class="QListView" name="listViewVideosIn"/>
-           </item>
-           <item>
-            <widget class="QPushButton" name="pushButtonDeleteVideoIn">
-             <property name="text">
-              <string>Excluir</string>
-             </property>
-            </widget>
+            <layout class="QVBoxLayout" name="verticalLayout_5">
+             <item>
+              <widget class="QListView" name="listViewVideosIn"/>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayout_3">
+               <item>
+                <widget class="QToolButton" name="toolButtonAddVideo">
+                 <property name="text">
+                  <string>+</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="pushButtonDeleteVideoIn">
+                 <property name="text">
+                  <string>Excluir</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QToolButton" name="toolButtonMoveVideoUp">
+                 <property name="text">
+                  <string>▲</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QToolButton" name="toolButtonMoveVideoDown">
+                 <property name="text">
+                  <string>▼</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+            </layout>
            </item>
           </layout>
          </widget>
@@ -92,6 +87,195 @@
                 <string notr="true">border: 1px solid white;
 border-radius: 10px</string>
                </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QFrame" name="frame">
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>50</height>
+                </size>
+               </property>
+               <property name="frameShape">
+                <enum>QFrame::Shape::StyledPanel</enum>
+               </property>
+               <property name="frameShadow">
+                <enum>QFrame::Shadow::Raised</enum>
+               </property>
+               <layout class="QVBoxLayout" name="verticalLayout_7">
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_11">
+                  <item>
+                   <widget class="QPushButton" name="pushButtonPlayPause">
+                    <property name="enabled">
+                     <bool>false</bool>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>70</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="text">
+                     <string>Play</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="pushButtonStop">
+                    <property name="enabled">
+                     <bool>false</bool>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>70</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="text">
+                     <string>Stop</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="pushButtonBegin">
+                    <property name="enabled">
+                     <bool>false</bool>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>30</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="text">
+                     <string>|&lt;</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="pushButtonPrev10m">
+                    <property name="enabled">
+                     <bool>false</bool>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>50</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="text">
+                     <string>&lt; 10m</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="pushButtonPrev1m">
+                    <property name="enabled">
+                     <bool>false</bool>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>50</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="text">
+                     <string>&lt; 1m</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="pushButtonPrev10s">
+                    <property name="enabled">
+                     <bool>false</bool>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>50</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="text">
+                     <string>&lt; 10s</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="pushButtonNext10s">
+                    <property name="enabled">
+                     <bool>false</bool>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>50</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="text">
+                     <string>10s &gt;</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="pushButtonNext1m">
+                    <property name="enabled">
+                     <bool>false</bool>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>50</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="text">
+                     <string>1m &gt;</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="pushButtonNext10m">
+                    <property name="enabled">
+                     <bool>false</bool>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>50</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="text">
+                     <string>10m &gt;</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="pushButtonEnd">
+                    <property name="enabled">
+                     <bool>false</bool>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>30</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="text">
+                     <string>&gt;|</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="labelVideoTime">
+                    <property name="text">
+                     <string>00:00:00.000</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
               </widget>
              </item>
              <item>
@@ -121,6 +305,9 @@ border-radius: 10px</string>
                     </property>
                     <item>
                      <widget class="QCheckBox" name="checkBoxEnableEdit">
+                      <property name="enabled">
+                       <bool>false</bool>
+                      </property>
                       <property name="maximumSize">
                        <size>
                         <width>200</width>
@@ -153,6 +340,9 @@ border-radius: 10px</string>
                     </item>
                     <item>
                      <widget class="QSpinBox" name="spinBoxMinAudio">
+                      <property name="enabled">
+                       <bool>false</bool>
+                      </property>
                       <property name="maximumSize">
                        <size>
                         <width>100</width>
@@ -179,6 +369,9 @@ border-radius: 10px</string>
                     </item>
                     <item>
                      <widget class="QSpinBox" name="spinBoxMinMotion">
+                      <property name="enabled">
+                       <bool>false</bool>
+                      </property>
                       <property name="maximumSize">
                        <size>
                         <width>100</width>
@@ -216,14 +409,10 @@ border-radius: 10px</string>
                           </widget>
                          </item>
                          <item>
-                          <widget class="QLineEdit" name="lineEditStartentSegment">
-                           <property name="placeholderText">
-                            <string>1sec,10sec 20sec,30sec</string>
-                           </property>
-                          </widget>
-                         </item>
-                         <item>
                           <widget class="QToolButton" name="toolButtonStartSegment">
+                           <property name="enabled">
+                            <bool>false</bool>
+                           </property>
                            <property name="text">
                             <string>[</string>
                            </property>
@@ -231,15 +420,31 @@ border-radius: 10px</string>
                          </item>
                          <item>
                           <widget class="QToolButton" name="toolButtonEndSegment">
+                           <property name="enabled">
+                            <bool>false</bool>
+                           </property>
                            <property name="text">
                             <string>]</string>
                            </property>
                           </widget>
                          </item>
                          <item>
-                          <widget class="QToolButton" name="toolButtonaddSegment">
+                          <widget class="QToolButton" name="toolButtonAddSegment">
+                           <property name="enabled">
+                            <bool>false</bool>
+                           </property>
                            <property name="text">
                             <string>+</string>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QToolButton" name="toolButtonDeleteSegment">
+                           <property name="enabled">
+                            <bool>false</bool>
+                           </property>
+                           <property name="text">
+                            <string>-</string>
                            </property>
                           </widget>
                          </item>
@@ -285,6 +490,9 @@ border-radius: 10px</string>
               <widget class="QCheckBox" name="checkBoxEnableVideoConv">
                <property name="text">
                 <string>Converte</string>
+               </property>
+               <property name="checked">
+                <bool>true</bool>
                </property>
               </widget>
              </item>
@@ -389,6 +597,9 @@ border-radius: 10px</string>
               <widget class="QCheckBox" name="checkBoxEnableAudioConv">
                <property name="text">
                 <string>Converte</string>
+               </property>
+               <property name="checked">
+                <bool>true</bool>
                </property>
               </widget>
              </item>
@@ -509,17 +720,28 @@ border-radius: 10px</string>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <tabstops>
-  <tabstop>lineEditVideoIn</tabstop>
-  <tabstop>toolButtonOpenFile</tabstop>
   <tabstop>listViewVideosIn</tabstop>
+  <tabstop>toolButtonAddVideo</tabstop>
   <tabstop>pushButtonDeleteVideoIn</tabstop>
+  <tabstop>toolButtonMoveVideoUp</tabstop>
+  <tabstop>toolButtonMoveVideoDown</tabstop>
+  <tabstop>pushButtonPlayPause</tabstop>
+  <tabstop>pushButtonStop</tabstop>
+  <tabstop>pushButtonBegin</tabstop>
+  <tabstop>pushButtonPrev10m</tabstop>
+  <tabstop>pushButtonPrev1m</tabstop>
+  <tabstop>pushButtonPrev10s</tabstop>
+  <tabstop>pushButtonNext10s</tabstop>
+  <tabstop>pushButtonNext1m</tabstop>
+  <tabstop>pushButtonNext10m</tabstop>
+  <tabstop>pushButtonEnd</tabstop>
   <tabstop>checkBoxEnableEdit</tabstop>
   <tabstop>spinBoxMinAudio</tabstop>
   <tabstop>spinBoxMinMotion</tabstop>
-  <tabstop>lineEditStartentSegment</tabstop>
   <tabstop>toolButtonStartSegment</tabstop>
   <tabstop>toolButtonEndSegment</tabstop>
-  <tabstop>toolButtonaddSegment</tabstop>
+  <tabstop>toolButtonAddSegment</tabstop>
+  <tabstop>toolButtonDeleteSegment</tabstop>
   <tabstop>listViewSegments</tabstop>
   <tabstop>checkBoxEnableVideoConv</tabstop>
   <tabstop>lineEditVideoCodec</tabstop>
@@ -528,8 +750,8 @@ border-radius: 10px</string>
   <tabstop>checkBoxEnableAudioConv</tabstop>
   <tabstop>lineEditAudioCodec</tabstop>
   <tabstop>spinBoxAudioBitrate</tabstop>
-  <tabstop>plainTextEditCmds</tabstop>
   <tabstop>pushButtonProcess</tabstop>
+  <tabstop>plainTextEditCmds</tabstop>
  </tabstops>
  <resources/>
  <connections/>
