@@ -1,1 +1,4 @@
 __pycache__/mainwindow.cpython-311.pyc
+build/
+dist/
+mcb-video-utils.spec
